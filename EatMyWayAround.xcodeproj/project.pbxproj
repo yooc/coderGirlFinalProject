@@ -7,12 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F91AC3B220B62D6400B96B11 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91AC3B120B62D6400B96B11 /* SearchViewController.swift */; };
+		F91AC3B420B6346700B96B11 /* RestaurantsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91AC3B320B6346700B96B11 /* RestaurantsModel.swift */; };
+		F91AC3B620B634A700B96B11 /* RestaurantDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91AC3B520B634A700B96B11 /* RestaurantDataFetcher.swift */; };
 		F99358AA20A3C41F0089D585 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99358A920A3C41F0089D585 /* AppDelegate.swift */; };
 		F99358AC20A3C41F0089D585 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99358AB20A3C41F0089D585 /* ViewController.swift */; };
 		F99358AF20A3C41F0089D585 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F99358AD20A3C41F0089D585 /* Main.storyboard */; };
 		F99358B120A3C41F0089D585 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F99358B020A3C41F0089D585 /* Assets.xcassets */; };
 		F99358B420A3C41F0089D585 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F99358B220A3C41F0089D585 /* LaunchScreen.storyboard */; };
 		F99358BF20A3C41F0089D585 /* EatMyWayAroundTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99358BE20A3C41F0089D585 /* EatMyWayAroundTests.swift */; };
+		F99358CB20A3CAE40089D585 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F99358CA20A3CAE40089D585 /* Search.storyboard */; };
+		F9F5DBD420B51BBF00C3266D /* MyList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9F5DBD320B51BBF00C3266D /* MyList.storyboard */; };
+		F9F5DBD620B51C8E00C3266D /* MyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F5DBD520B51C8E00C3266D /* MyListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +32,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F91AC3B120B62D6400B96B11 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		F91AC3B320B6346700B96B11 /* RestaurantsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsModel.swift; sourceTree = "<group>"; };
+		F91AC3B520B634A700B96B11 /* RestaurantDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDataFetcher.swift; sourceTree = "<group>"; };
 		F99358A620A3C41F0089D585 /* EatMyWayAround.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EatMyWayAround.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F99358A920A3C41F0089D585 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F99358AB20A3C41F0089D585 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -36,6 +45,9 @@
 		F99358BA20A3C41F0089D585 /* EatMyWayAroundTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EatMyWayAroundTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F99358BE20A3C41F0089D585 /* EatMyWayAroundTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EatMyWayAroundTests.swift; sourceTree = "<group>"; };
 		F99358C020A3C41F0089D585 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F99358CA20A3CAE40089D585 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		F9F5DBD320B51BBF00C3266D /* MyList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyList.storyboard; sourceTree = "<group>"; };
+		F9F5DBD520B51C8E00C3266D /* MyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,12 +89,15 @@
 		F99358A820A3C41F0089D585 /* EatMyWayAround */ = {
 			isa = PBXGroup;
 			children = (
-				F99358A920A3C41F0089D585 /* AppDelegate.swift */,
-				F99358AB20A3C41F0089D585 /* ViewController.swift */,
+				F99358C920A3C4380089D585 /* Supporting Files */,
 				F99358AD20A3C41F0089D585 /* Main.storyboard */,
-				F99358B020A3C41F0089D585 /* Assets.xcassets */,
-				F99358B220A3C41F0089D585 /* LaunchScreen.storyboard */,
-				F99358B520A3C41F0089D585 /* Info.plist */,
+				F9F5DBD320B51BBF00C3266D /* MyList.storyboard */,
+				F99358CA20A3CAE40089D585 /* Search.storyboard */,
+				F9F5DBD520B51C8E00C3266D /* MyListViewController.swift */,
+				F91AC3B520B634A700B96B11 /* RestaurantDataFetcher.swift */,
+				F91AC3B120B62D6400B96B11 /* SearchViewController.swift */,
+				F91AC3B320B6346700B96B11 /* RestaurantsModel.swift */,
+				F99358AB20A3C41F0089D585 /* ViewController.swift */,
 			);
 			path = EatMyWayAround;
 			sourceTree = "<group>";
@@ -94,6 +109,17 @@
 				F99358C020A3C41F0089D585 /* Info.plist */,
 			);
 			path = EatMyWayAroundTests;
+			sourceTree = "<group>";
+		};
+		F99358C920A3C4380089D585 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F99358A920A3C41F0089D585 /* AppDelegate.swift */,
+				F99358B020A3C41F0089D585 /* Assets.xcassets */,
+				F99358B520A3C41F0089D585 /* Info.plist */,
+				F99358B220A3C41F0089D585 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,6 +207,8 @@
 			files = (
 				F99358B420A3C41F0089D585 /* LaunchScreen.storyboard in Resources */,
 				F99358B120A3C41F0089D585 /* Assets.xcassets in Resources */,
+				F99358CB20A3CAE40089D585 /* Search.storyboard in Resources */,
+				F9F5DBD420B51BBF00C3266D /* MyList.storyboard in Resources */,
 				F99358AF20A3C41F0089D585 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -199,7 +227,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F91AC3B620B634A700B96B11 /* RestaurantDataFetcher.swift in Sources */,
+				F9F5DBD620B51C8E00C3266D /* MyListViewController.swift in Sources */,
 				F99358AC20A3C41F0089D585 /* ViewController.swift in Sources */,
+				F91AC3B420B6346700B96B11 /* RestaurantsModel.swift in Sources */,
+				F91AC3B220B62D6400B96B11 /* SearchViewController.swift in Sources */,
 				F99358AA20A3C41F0089D585 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -355,7 +387,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 537944W876;
-				INFOPLIST_FILE = EatMyWayAround/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/EatMyWayAround/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cyoo.EatMyWayAround;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -370,7 +402,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 537944W876;
-				INFOPLIST_FILE = EatMyWayAround/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/EatMyWayAround/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cyoo.EatMyWayAround;
 				PRODUCT_NAME = "$(TARGET_NAME)";

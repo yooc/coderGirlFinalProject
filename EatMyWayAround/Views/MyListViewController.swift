@@ -4,8 +4,6 @@ class MyListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("viewDidLoad of MyListViewController")
-        // Do any additional setup after loading the view.
     }
 }
 
