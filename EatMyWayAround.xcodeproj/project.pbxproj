@@ -46,12 +46,12 @@
 		F9CA3BDA20C8B68600FEFE5D /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		F9CA3BDC20C8B6D800FEFE5D /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		F9CA3BDE20C8B6E000FEFE5D /* SearchModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
-		F9CA3BE020C8B6EE00FEFE5D /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../Views/ViewController.swift; sourceTree = "<group>"; };
-		F9CA3BE120C8B6EE00FEFE5D /* MyList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MyList.storyboard; path = ../Views/MyList.storyboard; sourceTree = "<group>"; };
+		F9CA3BE020C8B6EE00FEFE5D /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F9CA3BE120C8B6EE00FEFE5D /* MyList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyList.storyboard; sourceTree = "<group>"; };
 		F9CA3BE220C8B6EE00FEFE5D /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Search.storyboard; path = ../Views/Search.storyboard; sourceTree = "<group>"; };
-		F9CA3BE320C8B6EE00FEFE5D /* MyListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyListViewController.swift; path = ../Views/MyListViewController.swift; sourceTree = "<group>"; };
+		F9CA3BE320C8B6EE00FEFE5D /* MyListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyListViewController.swift; sourceTree = "<group>"; };
 		F9CA3BE420C8B6EE00FEFE5D /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchViewController.swift; path = ../Views/SearchViewController.swift; sourceTree = "<group>"; };
-		F9CA3BEE20C8B8E100FEFE5D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Views/Main.storyboard; sourceTree = "<group>"; };
+		F9CA3BEE20C8B8E100FEFE5D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,8 +133,7 @@
 				F9CA3BE220C8B6EE00FEFE5D /* Search.storyboard */,
 				F9CA3BE420C8B6EE00FEFE5D /* SearchViewController.swift */,
 			);
-			name = Views;
-			path = "New Group";
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

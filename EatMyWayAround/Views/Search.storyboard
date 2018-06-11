@@ -50,6 +50,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zxI-6S-dKm"/>
                     </view>
+                    <connections>
+                        <outlet property="searchBar" destination="ouP-rt-lTD" id="RKU-42-QD9"/>
+                        <outlet property="searchResultsTableView" destination="PVX-Em-paV" id="2Lc-wK-EMg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hmM-uG-1vd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

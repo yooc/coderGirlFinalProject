@@ -2,8 +2,19 @@ import UIKit
 
 class SearchViewController: UIViewController {
 
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    @IBOutlet weak var searchResultsTableView: UITableView!
+    
+//    let dataModel: SearchModel
+    let dataModel = SearchModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        dataModel.dataAvailableDelegate = self
+        searchResultsTableView.delegate = self
+        searchResultsTableView.dataSource = self
+        searchBar.delegate = self
     }
 }
 
@@ -20,4 +31,14 @@ extension SearchViewController: UITableViewDataSource {
 
 extension SearchViewController: UITableViewDelegate {
     
+}
+
+extension SearchViewController: UISearchBarDelegate {
+    
+}
+
+extension SearchViewController: DataAvailableDelegate {
+    func dataAvailable() {
+        
+    }
 }

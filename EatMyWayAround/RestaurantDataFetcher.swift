@@ -11,7 +11,7 @@ class RestaurantDataFetcher {
         return baseURL + "/search?q=&lat=\(lat)&lon=\(long)"
     }
     
-    func fetchRestaurant(restaurant: Restaurant, completion: @escaping (String) -> () ) {
+    func fetchRestaurant(completion: @escaping (String) -> () ) {
         var request = URLRequest(url: URL(string: buildURL())!)
         request.addValue(Bundle.main.object(forInfoDictionaryKey: "ZomatoAPIKey") as! String, forHTTPHeaderField: "user-key" )
         request.httpMethod = "GET"
@@ -25,12 +25,22 @@ class RestaurantDataFetcher {
                 return
             }
             
-            do {
-              let jsonDecoderRestaurant = try JSONDecoder().decode(Restaurant.self, from: data)
-                print(jsonDecoderRestaurant)
-            } catch let error as NSError {
-                print(error)
+//            do {
+//              let jsonDecoderRestaurant = try JSONDecoder().decode(Restaurant.self, from: data)
+//                print(jsonDecoderRestaurant)
+//            } catch let error as NSError {
+//                print(error)
+//            }
+            guard let rawJSONData = try? JSONSerialization.jsonObject(with: data, options: .allowFragments)  else {
+
+                print("JSON serialization failed")
+                DispatchQueue.main.async {
+                    completion("")
+                }
+                return
             }
+            
+            // Need to un-nest data so can get to "restaurants" array...
         }
         task.resume()
     }
