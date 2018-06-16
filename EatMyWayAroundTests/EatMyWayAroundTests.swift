@@ -10,27 +10,24 @@ import XCTest
 @testable import EatMyWayAround
 
 class EatMyWayAroundTests: XCTestCase {
-    
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func testJSONConverter() {
+        let fetcher = RestaurantDataFetcher()
+        let testJSON = json("serverExample")
+        let restaurants = fetcher.convert(json: testJSON)
+        XCTAssertEqual(20, restaurants.count)
     }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+}
+
+extension XCTestCase {
+    func json(_ fileName: String) -> JSON {
+        guard let path = Bundle(for: type(of: self)).path(forResource: fileName, ofType: "json"),
+            let data = NSData(contentsOfFile: path),
+            let unwrappedData = try? JSONSerialization.jsonObject(with: data as Data, options: JSONSerialization.ReadingOptions(rawValue: 0)) as? JSON,
+            let testData = unwrappedData else {
+                XCTFail()
+                return JSON()
         }
+        return testData
     }
-    
 }

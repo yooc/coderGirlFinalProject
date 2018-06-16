@@ -13,6 +13,6 @@ class LocationDetails: Codable {
 }
 
 class Ratings: Codable {
-    var aggregate_rating: Double
-    var votes: Int
+    var aggregate_rating: String
+    var votes: String
 }
