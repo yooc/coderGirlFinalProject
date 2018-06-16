@@ -46,7 +46,7 @@ struct Persistence {
         return appDataDictionary
     }
     
-    func writeUserList(appDataDictionary: [String: Any], user: String) -> Bool {
+    func writeToUserList(appDataDictionary: [String: Any], user: String) -> Bool {
         guard let documentsDirectory = documentsUrl else {
             print("Could not read documents directory")
             return false

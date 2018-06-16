@@ -40,18 +40,52 @@ final class RestaurantModel {
         }
     }
     
-    func setList() {
-        let jsonData = persistence.
+    func saveToList(restaurant: Restaurant) {
+        lastRequestToSave?.cancel()
         
-        guard let userData = jsonData?["Current Available Users"] else {
-            print("Unable to get available users")
-            return
+        let saveChangesWorkItem = DispatchWorkItem { [weak self] in
+            do {
+                let restaurantJSON = try JSONEncoder().encode(restaurant)
+                let appDataDictionary = ["restaurantList": restaurantJSON]
+                guard let currentUser = self?.currentUser else { return }
+                
+                let result = self?.persistence.writeToUserList(appDataDictionary: appDataDictionary, user: currentUser) ?? false
+                result ? self?.restaurantModelDelegate?.dataSaved() : self?.restaurantModelDelegate?.errorSaving()
+                
+            } catch let error as NSError {
+                print (error.debugDescription)
+            }
         }
         
-        availableUsers = userData as! [String]
+        lastRequestToSave = saveChangesWorkItem
+        let _ = saveChangesWorkItem.wait(timeout: .now() + 2)
+        
+        saveChangesWorkItem.perform()
     }
     
-    func saveToList(restaurant: Restaurant) {
+    var persistedList: [Restaurant]? {
+        guard let listJSON = persistence.readUserList(for: currentUser) else {
+            return []
+        }
         
+        guard let arrayOfRestaurants = listJSON["restaurantList"] as? [JSON] else {
+            return []
+        }
+
+        let restaurants = arrayOfRestaurants.flatMap { (json) -> Restaurant? in
+            guard let restaurantJSON = json["restaurantList"] as? JSON else {
+                return nil
+            }
+            
+            do {
+                let restaurantData = try JSONSerialization.data(withJSONObject: restaurantJSON, options: JSONSerialization.WritingOptions.init(rawValue: 0))
+                let restaurant = try JSONDecoder().decode(Restaurant.self, from: restaurantData)
+                return restaurant
+            } catch let error as NSError {
+                print(error.debugDescription)
+                return nil
+            }
+        }
+        return restaurants
     }
 }
