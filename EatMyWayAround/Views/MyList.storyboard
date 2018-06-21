@@ -42,6 +42,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hOL-7T-len"/>
                     </view>
+                    <connections>
+                        <outlet property="myListTableView" destination="upy-pp-BKg" id="nNt-vK-6Si"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XAD-sB-sMe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

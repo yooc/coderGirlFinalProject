@@ -13,6 +13,7 @@ protocol RestaurantModelDelegate: class {
 final class RestaurantModel {
     
     private let currentUserKey = "currentUser"
+    var persistedList: [Restaurant?] = []
     
     private let location = Location()
     private let persistence = Persistence()
@@ -24,12 +25,13 @@ final class RestaurantModel {
     var lastRequestToSave: DispatchWorkItem?
     
     weak var restaurantModelDelegate: RestaurantModelDelegate?
-        
+    
     private let dataFetcher: RestaurantDataFetcher
     weak var dataAvailableDelegate: DataAvailableDelegate?
-
+    
     init() {
         currentUser =  settingsDefaults.valueFor(key: currentUserKey) ?? ""
+        
         dataFetcher = RestaurantDataFetcher()
         dataFetcher.fetchRestaurant(location: location) { [weak self] (restaurants) in
             for restaurant in restaurants {
@@ -40,30 +42,7 @@ final class RestaurantModel {
         }
     }
     
-    func saveToList(restaurant: Restaurant) {
-        lastRequestToSave?.cancel()
-        
-        let saveChangesWorkItem = DispatchWorkItem { [weak self] in
-            do {
-                let restaurantJSON = try JSONEncoder().encode(restaurant)
-                let appDataDictionary = ["restaurantList": restaurantJSON]
-                guard let currentUser = self?.currentUser else { return }
-                
-                let result = self?.persistence.writeToUserList(appDataDictionary: appDataDictionary, user: currentUser) ?? false
-                result ? self?.restaurantModelDelegate?.dataSaved() : self?.restaurantModelDelegate?.errorSaving()
-                
-            } catch let error as NSError {
-                print (error.debugDescription)
-            }
-        }
-        
-        lastRequestToSave = saveChangesWorkItem
-        let _ = saveChangesWorkItem.wait(timeout: .now() + 2)
-        
-        saveChangesWorkItem.perform()
-    }
-    
-    var persistedList: [Restaurant]? {
+    func getPersistedList(user: String) -> [Restaurant?] {
         guard let listJSON = persistence.readUserList(for: currentUser) else {
             return []
         }
@@ -71,7 +50,7 @@ final class RestaurantModel {
         guard let arrayOfRestaurants = listJSON["restaurantList"] as? [JSON] else {
             return []
         }
-
+        
         let restaurants = arrayOfRestaurants.flatMap { (json) -> Restaurant? in
             guard let restaurantJSON = json["restaurantList"] as? JSON else {
                 return nil
@@ -87,5 +66,39 @@ final class RestaurantModel {
             }
         }
         return restaurants
+    }
+    
+    func setPersistedList(list: [Restaurant?]) {
+        persistedList = getPersistedList(user: currentUser)
+    }
+    
+    func saveToList(restaurant: Restaurant) {
+        lastRequestToSave?.cancel()
+        
+        let saveChangesWorkItem = DispatchWorkItem { [weak self] in
+            do {
+                var currentList = self?.getPersistedList(user: (self?.currentUser)!) ?? []
+                currentList.append(restaurant)
+                
+                let appDataDictionary = ["restaurantList": currentList]
+                
+                let restaurantData = try JSONEncoder().encode(appDataDictionary)
+                
+                guard let currentUser = self?.currentUser else { return }
+                
+                let result = self?.persistence.writeToUserList(appData: restaurantData, user: currentUser) ?? false
+                result ? self?.restaurantModelDelegate?.dataSaved() : self?.restaurantModelDelegate?.errorSaving()
+                
+                self?.setPersistedList(list: currentList)
+                
+            } catch let error as NSError {
+                print (error.debugDescription)
+            }
+        }
+        
+        lastRequestToSave = saveChangesWorkItem
+        let _ = saveChangesWorkItem.wait(timeout: .now() + 2)
+        
+        saveChangesWorkItem.perform()
     }
 }

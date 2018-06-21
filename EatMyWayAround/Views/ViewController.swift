@@ -2,18 +2,17 @@ import UIKit
 
 class ViewController: UIViewController {
     
-//    let dataModel = SearchModel()
+    let dataModel = RestaurantModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        dataModel.dataAvailableDelegate = self
     }
-    
+ 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let myListViewController = segue.destination as? MyListViewController {
+            myListViewController.dataModel = dataModel
+        } else if let searchViewController = segue.destination as? SearchViewController {
+            searchViewController.dataModel = dataModel
+        }
+    }
 }
-
-//extension ViewController: DataAvailableDelegate {
-//    func dataAvailable() {
-//
-//    }
-//}
-

@@ -46,7 +46,7 @@ struct Persistence {
         return appDataDictionary
     }
     
-    func writeToUserList(appDataDictionary: [String: Any], user: String) -> Bool {
+    func writeToUserList(appData: Data, user: String) -> Bool {
         guard let documentsDirectory = documentsUrl else {
             print("Could not read documents directory")
             return false
@@ -56,10 +56,10 @@ struct Persistence {
         
         let writeUrl = documentsDirectory.appendingPathComponent(fileName, isDirectory: false)
         
-        guard let appData = try? JSONSerialization.data(withJSONObject: appDataDictionary, options: .prettyPrinted) else {
-            print("Could not serialize dictionary to data")
-            return false
-        }
+//        guard let appData = try? JSONSerialization.data(withJSONObject: appDataDictionary, options: .prettyPrinted) else {
+//            print("Could not serialize dictionary to data")
+//            return false
+//        }
         
         do {
             try appData.write(to: writeUrl)

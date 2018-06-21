@@ -17,7 +17,6 @@ class RestaurantDataFetcher {
             do {
                 let restaurantData = try JSONSerialization.data(withJSONObject: restaurantJSON, options: JSONSerialization.WritingOptions.init(rawValue: 0))
                 let restaurant = try JSONDecoder().decode(Restaurant.self, from: restaurantData)
-                print(restaurant.name)
                 return restaurant
             } catch let error as NSError {
                 print(error.debugDescription)
@@ -48,7 +47,6 @@ class RestaurantDataFetcher {
             }
             
             guard let json1 = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) , let json2 = json1 as? JSON else {
-
                 print("JSON serialization failed")
                 DispatchQueue.main.async {
                     completion([])
