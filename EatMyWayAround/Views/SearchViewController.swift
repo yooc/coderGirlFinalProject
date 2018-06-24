@@ -21,13 +21,14 @@ extension SearchViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "searchResultsCell") else { return UITableViewCell() }
-        cell.textLabel?.text = "\(dataModel?.searchResults[indexPath.row].name)"
+        
+        cell.textLabel?.text = "\(dataModel?.searchResults[indexPath.row].name ?? "Data Unavailable" )"
         
         cell.detailTextLabel?.text = """
-        \(dataModel?.searchResults[indexPath.row].cuisines)
-        User Rating: \(dataModel?.searchResults[indexPath.row].user_rating.aggregate_rating) from \(dataModel?.searchResults[indexPath.row].user_rating.votes) votes
-        Average Cost for 2: \(dataModel?.searchResults[indexPath.row].average_cost_for_two)
-        \(dataModel?.searchResults[indexPath.row].location.address)
+        \(dataModel?.searchResults[indexPath.row].cuisines ?? "Data Unavailable")
+        User Rating: \(dataModel?.searchResults[indexPath.row].user_rating.aggregate_rating ?? "Data Unavailable") from \(dataModel?.searchResults[indexPath.row].user_rating.votes ?? "Data Unavailable") votes
+        Average Cost for 2: \(dataModel?.searchResults[indexPath.row].average_cost_for_two ?? 0)
+        \(dataModel?.searchResults[indexPath.row].location.address ?? "Data Unavailable")
         """
         return cell
     }
@@ -35,7 +36,7 @@ extension SearchViewController: UITableViewDataSource {
 
 extension SearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let alert = UIAlertController(title: "Add \(dataModel?.searchResults[indexPath.row].name) to your list?", message: nil, preferredStyle: .alert)
+        let alert = UIAlertController(title: "Add \(dataModel?.searchResults[indexPath.row].name ?? "Data Unavailable" ) to your list?", message: nil, preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
         

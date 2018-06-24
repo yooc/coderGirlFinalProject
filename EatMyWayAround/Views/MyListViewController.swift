@@ -20,13 +20,12 @@ extension MyListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "myListCell"), let restaurant = dataModel?.persistedList[indexPath.row] else { return UITableViewCell() }
-//        guard let restaurant = dataModel?.persistedList.element(at: indexPath.row)?
         cell.textLabel?.text = restaurant.name
         cell.detailTextLabel?.text = """
-        \(dataModel?.searchResults[indexPath.row].cuisines)
-        User Rating: \(dataModel?.searchResults[indexPath.row].user_rating.aggregate_rating) from \(dataModel?.searchResults[indexPath.row].user_rating.votes) votes
-        Average Cost for 2: \(dataModel?.searchResults[indexPath.row].average_cost_for_two)
-        \(dataModel?.searchResults[indexPath.row].location.address)
+        \(restaurant.cuisines)
+        User Rating: \(restaurant.user_rating.aggregate_rating) from \(restaurant.user_rating.votes) votes
+        Average Cost for 2: \(restaurant.average_cost_for_two)
+        \(restaurant.location.address)
         """
         return cell
     }
