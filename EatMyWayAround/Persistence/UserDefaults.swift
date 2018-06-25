@@ -13,4 +13,3 @@ class SettingDefaults {
         return UserDefaults.standard.string(forKey: key)
     }
 }
-

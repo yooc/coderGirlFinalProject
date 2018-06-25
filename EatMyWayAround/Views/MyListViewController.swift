@@ -8,6 +8,7 @@ class MyListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        dataModel?.dataAvailableDelegate = self
         myListTableView.delegate = self
         myListTableView.dataSource = self
     }
@@ -33,4 +34,10 @@ extension MyListViewController: UITableViewDataSource {
 
 extension MyListViewController: UITableViewDelegate {
     
+}
+
+extension MyListViewController: DataAvailableDelegate {
+    func dataAvailable() {
+        myListTableView.reloadData()
+    }
 }

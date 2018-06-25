@@ -12,14 +12,13 @@ protocol RestaurantModelDelegate: class {
 
 final class RestaurantModel {
     
-    private let currentUserKey = "currentUser"
+    private let currentUser = "currentUser"
     var persistedList: [Restaurant?] = []
     
     private let location = Location()
     private let persistence = Persistence()
     private let settingsDefaults = SettingDefaults()
     
-    private(set) var currentUser: String
     var searchResults = [Restaurant]()
     
     var lastRequestToSave: DispatchWorkItem?
@@ -30,8 +29,6 @@ final class RestaurantModel {
     weak var dataAvailableDelegate: DataAvailableDelegate?
     
     init() {
-        currentUser =  settingsDefaults.valueFor(key: currentUserKey) ?? ""
-        
         dataFetcher = RestaurantDataFetcher()
         dataFetcher.fetchRestaurant(location: location) { [weak self] (restaurants) in
             for restaurant in restaurants {
