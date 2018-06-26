@@ -54,3 +54,18 @@ extension SearchViewController: DataAvailableDelegate {
         searchResultsTableView.reloadData()
     }
 }
+
+extension SearchViewController: RestaurantModelDelegate {
+    func dataSaved() {
+        let alert = UIAlertController(title: "Save Successful", message: "The restaurant was saved to your list.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func errorSaving() {
+        let alert = UIAlertController(title: "Error Saving", message: "We save this restaurant at this time.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+}
+

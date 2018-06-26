@@ -6,6 +6,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        dataModel.setPersistedList(list: dataModel.getPersistedList(user: "currentUser"))
     }
  
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

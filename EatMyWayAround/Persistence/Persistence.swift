@@ -55,10 +55,10 @@ struct Persistence {
         let fileName = "\(user)-\(baseFileName)"
         
         let writeUrl = documentsDirectory.appendingPathComponent(fileName, isDirectory: false)
+        print("\(writeUrl)")
         
         do {
             try appData.write(to: writeUrl)
-            
             return true
         } catch {
             print(error.localizedDescription)
