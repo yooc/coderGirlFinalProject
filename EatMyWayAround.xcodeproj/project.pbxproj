@@ -24,6 +24,7 @@
 		F9CA3BE920C8B6EE00FEFE5D /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CA3BE420C8B6EE00FEFE5D /* SearchViewController.swift */; };
 		F9CA3BEF20C8B8E100FEFE5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9CA3BEE20C8B8E100FEFE5D /* Main.storyboard */; };
 		F9E6CA9520D1DE1E00D03A04 /* serverExample.json in Resources */ = {isa = PBXBuildFile; fileRef = F9E6CA9420D1DE1E00D03A04 /* serverExample.json */; };
+		F9F2348C20E2B3C5006080B3 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F2348B20E2B3C5006080B3 /* Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		F9CA3BE420C8B6EE00FEFE5D /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchViewController.swift; path = ../Views/SearchViewController.swift; sourceTree = "<group>"; };
 		F9CA3BEE20C8B8E100FEFE5D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		F9E6CA9420D1DE1E00D03A04 /* serverExample.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = serverExample.json; sourceTree = "<group>"; };
+		F9F2348B20E2B3C5006080B3 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				F91AC3B520B634A700B96B11 /* RestaurantDataFetcher.swift */,
 				F9CA3BDC20C8B6D800FEFE5D /* Restaurant.swift */,
 				F9CA3BDA20C8B68600FEFE5D /* Location.swift */,
+				F9F2348B20E2B3C5006080B3 /* Utils.swift */,
 				F9CA3BEA20C8B6F300FEFE5D /* Views */,
 				F93AD8F820D1856900661A48 /* Persistence */,
 			);
@@ -266,6 +269,7 @@
 				F9CA3BE820C8B6EE00FEFE5D /* MyListViewController.swift in Sources */,
 				F91AC3B620B634A700B96B11 /* RestaurantDataFetcher.swift in Sources */,
 				F93AD8F720D1853900661A48 /* UserDefaults.swift in Sources */,
+				F9F2348C20E2B3C5006080B3 /* Utils.swift in Sources */,
 				F99358AA20A3C41F0089D585 /* AppDelegate.swift in Sources */,
 				F9CA3BDF20C8B6E000FEFE5D /* RestaurantModel.swift in Sources */,
 				F9CA3BDB20C8B68600FEFE5D /* Location.swift in Sources */,

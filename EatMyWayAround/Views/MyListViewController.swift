@@ -11,6 +11,9 @@ class MyListViewController: UIViewController {
         dataModel?.dataAvailableDelegate = self
         myListTableView.delegate = self
         myListTableView.dataSource = self
+        
+        let userList = dataModel?.getPersistedList(user: "currentUser")
+        dataModel?.setPersistedList(list: userList!)
     }
 }
 

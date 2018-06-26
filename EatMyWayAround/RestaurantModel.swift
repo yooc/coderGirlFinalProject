@@ -39,26 +39,14 @@ final class RestaurantModel {
     }
     
     func getPersistedList(user: String) -> [Restaurant?] {
-        guard let listJSON = persistence.readUserList(for: currentUser) else {
+        guard let listData = persistence.readUserList(for: currentUser) else { return [] }
+        
+        guard let json1 = try? JSONSerialization.jsonObject(with: listData, options: .allowFragments), let json2 = json1 as? JSON else {
+            print("JSON serialization failed")
             return []
         }
         
-        guard let arrayOfRestaurants = listJSON["restaurantList"] as? [JSON] else {
-            return []
-        }
-        
-        let restaurants = arrayOfRestaurants.flatMap { (json) -> Restaurant? in
-            guard let restaurantJSON = json["restaurantList"] as? JSON else { return nil }
-            
-            do {
-                let restaurantData = try JSONSerialization.data(withJSONObject: restaurantJSON, options: JSONSerialization.WritingOptions.init(rawValue: 0))
-                let restaurant = try JSONDecoder().decode(Restaurant.self, from: restaurantData)
-                return restaurant
-            } catch let error as NSError {
-                print(error.debugDescription)
-                return nil
-            }
-        }
+        let restaurants = Utils.convert(json: json2)
         return restaurants
     }
     
