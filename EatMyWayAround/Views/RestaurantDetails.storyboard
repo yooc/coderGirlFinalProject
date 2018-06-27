@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6qm-8z-AGO">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Restaurant Details View Controller-->
+        <scene sceneID="78i-ZL-LPd">
+            <objects>
+                <viewController id="6qm-8z-AGO" customClass="RestaurantDetailsViewController" customModule="EatMyWayAround" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="P68-kW-7gZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="QLH-df-kST">
+                                <rect key="frame" x="169" y="325" width="37.5" height="18"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nzq-dh-Ury">
+                                        <rect key="frame" x="0.0" y="0.0" width="37.5" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="nzq-dh-Ury" firstAttribute="leading" secondItem="QLH-df-kST" secondAttribute="leading" id="7B8-rs-TvD"/>
+                                    <constraint firstAttribute="trailing" secondItem="nzq-dh-Ury" secondAttribute="trailing" id="WRA-gM-Si6"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="QLH-df-kST" firstAttribute="centerX" secondItem="P68-kW-7gZ" secondAttribute="centerX" id="YYN-Tp-Qn5"/>
+                            <constraint firstItem="QLH-df-kST" firstAttribute="centerY" secondItem="P68-kW-7gZ" secondAttribute="centerY" id="jMt-7K-yc4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="PPi-ld-LME"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="rh0-Vg-YYD"/>
+                    <connections>
+                        <outlet property="detailsLabel" destination="nzq-dh-Ury" id="FwM-AN-JKo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wOG-d2-lpQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2087.1999999999998" y="187.55622188905548"/>
+        </scene>
+    </scenes>
+</document>

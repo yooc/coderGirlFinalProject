@@ -11,6 +11,18 @@ class MyListViewController: UIViewController {
         dataModel?.dataAvailableDelegate = self
         myListTableView.delegate = self
         myListTableView.dataSource = self
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let detailViewController = segue.destination as? RestaurantDetailsViewController, let restaurantSelected = sender as? Restaurant {
+            detailViewController.dataModel = dataModel
+            detailViewController.restaurantSelected = restaurantSelected
+        }
+        let storyboard = UIStoryboard(name: "MyList", bundle: nil)
+        let restaurantDetails = storyboard.instantiateViewController(withIdentifier: "restaurantDetails")
+        restaurantDetails.modalTransitionStyle = .crossDissolve
+        self.present(restaurantDetails, animated: true, completion: nil)
     }
 }
 
@@ -35,12 +47,7 @@ extension MyListViewController: UITableViewDelegate {
         guard let restaurantArray = dataModel?.persistedList else { return }
         guard let restaurant = restaurantArray[indexPath.row] else { return }
         
-//        cell.detailTextLabel?.text = """
-//        \(restaurant.cuisines)
-//        User Rating: \(restaurant.user_rating.aggregate_rating) from \(restaurant.user_rating.votes) votes
-//        Average Cost for 2: \(restaurant.average_cost_for_two)
-//        \(restaurant.location.address)
-//        """
+        performSegue(withIdentifier: "showDetail", sender: restaurant)
     }
 }
 
