@@ -22,14 +22,14 @@ extension MyListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "myListCell") else { return UITableViewCell() }
         guard let restaurantArray = dataModel?.persistedList else { return UITableViewCell() }
-        let restaurant = restaurantArray[indexPath.row]
+        guard let restaurant = restaurantArray[indexPath.row] else { return UITableViewCell() }
         
-        cell.textLabel?.text = restaurant?.name
+        cell.textLabel?.text = restaurant.name
         cell.detailTextLabel?.text = """
-        \(restaurant?.cuisines)
-        User Rating: \(restaurant?.user_rating.aggregate_rating) from \(restaurant?.user_rating.votes) votes
-        Average Cost for 2: \(restaurant?.average_cost_for_two)
-        \(restaurant?.location.address)
+        \(restaurant.cuisines)
+        User Rating: \(restaurant.user_rating.aggregate_rating) from \(restaurant.user_rating.votes) votes
+        Average Cost for 2: \(restaurant.average_cost_for_two)
+        \(restaurant.location.address)
         """
         return cell
     }

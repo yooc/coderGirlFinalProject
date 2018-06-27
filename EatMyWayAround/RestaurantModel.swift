@@ -12,32 +12,35 @@ protocol RestaurantModelDelegate: class {
 final class RestaurantModel {
     
     private let currentUser = "currentUser"
-    var persistedList: [Restaurant?] = []
     
-    private let location = Location()
+    let location = Location()
     private let persistence = Persistence()
-    private let settingsDefaults = SettingDefaults()
-    
     var searchResults = [Restaurant]()
     
     var lastRequestToSave: DispatchWorkItem?
-    
-    weak var restaurantModelDelegate: RestaurantModelDelegate?
-    
-    private let dataFetcher: RestaurantDataFetcher
+    let dataFetcher: RestaurantDataFetcher
     weak var dataAvailableDelegate: DataAvailableDelegate?
+    weak var restaurantModelDelegate: RestaurantModelDelegate?
     
     init() {
         dataFetcher = RestaurantDataFetcher()
+    }
+    
+    /// Method which performs API query and populates searchResults 
+    func populateSearchResults() {
+        self.clearSearchResults()
         dataFetcher.fetchRestaurant(location: location) { [weak self] (restaurants) in
             for restaurant in restaurants {
                 self?.searchResults.append(restaurant)
             }
-            
             self?.dataAvailableDelegate?.dataAvailable()
         }
     }
     
+    /// Method which fetches the user's persisted list from local file
+    ///
+    /// - Parameter user: Key for user
+    /// - Returns: User's persisted list as an array of Restaurants
     func getPersistedList(user: String) -> [Restaurant?] {
         guard let listJSON = persistence.readUserList(for: currentUser) else {
             return []
@@ -55,17 +58,16 @@ final class RestaurantModel {
                 let restaurant = try JSONDecoder().decode(Restaurant.self, from: restaurantData)
                 return restaurant
             } catch let error as NSError {
-                print(error.debugDescription)
+                print("getPersistedList error: ", error.debugDescription)
                 return nil
             }
         }
         return restaurants
     }
     
-    func setPersistedList(list: [Restaurant?]) {
-        persistedList = list
-    }
-    
+    /// Method which writes the user's updated list to local file
+    ///
+    /// - Parameter restaurant: Restaurant object to save
     func saveToList(restaurant: Restaurant) {
         lastRequestToSave?.cancel()
         
@@ -83,10 +85,8 @@ final class RestaurantModel {
                 let result = self?.persistence.writeToUserList(appData: restaurantData, user: currentUser) ?? false
                 result ? self?.restaurantModelDelegate?.dataSaved() : self?.restaurantModelDelegate?.errorSaving()
                 
-                self?.setPersistedList(list: currentList)
-                
             } catch let error as NSError {
-                print (error.debugDescription)
+                print ("saveToList error: ", error.debugDescription)
             }
         }
         
@@ -94,5 +94,14 @@ final class RestaurantModel {
         let _ = saveChangesWorkItem.wait(timeout: .now() + 2)
         
         saveChangesWorkItem.perform()
+    }
+    
+    /// Reset searchResults array to empty array to prepare for next query
+    func clearSearchResults() {
+        searchResults = [Restaurant]()
+    }
+    
+    var persistedList: [Restaurant?] {
+        return getPersistedList(user: currentUser)
     }
 }

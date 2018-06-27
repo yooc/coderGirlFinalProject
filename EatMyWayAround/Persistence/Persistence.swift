@@ -61,7 +61,7 @@ struct Persistence {
             try appData.write(to: writeUrl)
             return true
         } catch {
-            print(error.localizedDescription)
+            print("writeToUserList error: ", error.localizedDescription)
             return false
         }
     }

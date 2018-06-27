@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EatMyWayAround/Views/SearchViewController.swift"
-            timestampString = "551675427.3371871"
+            timestampString = "551768942.745109"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "tableView(_:didSelectRowAt:)"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,13 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "EatMyWayAround/RestaurantModel.swift"
-            timestampString = "551675427.338016"
+            filePath = "EatMyWayAround/RestaurantDataFetcher.swift"
+            timestampString = "551768942.7452"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "getPersistedList(user:)"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "convert(json:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -57,44 +57,60 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "EatMyWayAround/RestaurantModel.swift"
-            timestampString = "551675427.339775"
+            filePath = "EatMyWayAround/RestaurantDataFetcher.swift"
+            timestampString = "551768942.7452739"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "getPersistedList(user:)"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "fetchRestaurant(location:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EatMyWayAround/RestaurantDataFetcher.swift"
+            timestampString = "551768942.745344"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "fetchRestaurant(location:completion:)"
             landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "EatMyWayAround.RestaurantModel.getPersistedList(user: Swift.String) -&gt; Swift.Array&lt;Swift.Optional&lt;EatMyWayAround.Restaurant&gt;&gt;"
+                  symbolName = "EatMyWayAround.RestaurantDataFetcher.fetchRestaurant(location: EatMyWayAround.Location, completion: (Swift.Array&lt;EatMyWayAround.Restaurant&gt;) -&gt; ()) -&gt; ()"
                   moduleName = "EatMyWayAround"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/cyoo0706/Documents/coderGirl/EatMyWayAround/EatMyWayAround/RestaurantModel.swift"
-                  timestampString = "551675292.2734441"
+                  urlString = "file:///Users/cyoo0706/Documents/coderGirl/EatMyWayAround/EatMyWayAround/RestaurantDataFetcher.swift"
+                  timestampString = "551768137.9988379"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "50"
-                  endingLineNumber = "50"
-                  offsetFromSymbolStart = "699">
+                  startingLineNumber = "49"
+                  endingLineNumber = "49"
+                  offsetFromSymbolStart = "1756">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Dictionary&lt;Swift.String, Any&gt;) -&gt; Swift.Optional&lt;EatMyWayAround.Restaurant&gt; in EatMyWayAround.RestaurantModel.getPersistedList(user: Swift.String) -&gt; Swift.Array&lt;Swift.Optional&lt;EatMyWayAround.Restaurant&gt;&gt;"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__ObjC.URLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in EatMyWayAround.RestaurantDataFetcher.fetchRestaurant(location: EatMyWayAround.Location, completion: (Swift.Array&lt;EatMyWayAround.Restaurant&gt;) -&gt; ()) -&gt; ()"
                   moduleName = "EatMyWayAround"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/cyoo0706/Documents/coderGirl/EatMyWayAround/EatMyWayAround/RestaurantModel.swift"
-                  timestampString = "551675292.279642"
+                  urlString = "file:///Users/cyoo0706/Documents/coderGirl/EatMyWayAround/EatMyWayAround/RestaurantDataFetcher.swift"
+                  timestampString = "551768138.001768"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "51"
-                  endingLineNumber = "51"
-                  offsetFromSymbolStart = "44">
+                  startingLineNumber = "50"
+                  endingLineNumber = "50"
+                  offsetFromSymbolStart = "48">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -106,27 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EatMyWayAround/RestaurantModel.swift"
-            timestampString = "551675427.340317"
+            timestampString = "551768942.745418"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "getPersistedList(user:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "EatMyWayAround/RestaurantModel.swift"
-            timestampString = "551675427.340782"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
             landmarkName = "saveToList(restaurant:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -138,12 +138,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EatMyWayAround/RestaurantModel.swift"
-            timestampString = "551675427.3412189"
+            timestampString = "551768942.745851"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "getPersistedList(user:)"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "saveToList(restaurant:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
