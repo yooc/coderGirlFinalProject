@@ -50,8 +50,9 @@ final class RestaurantModel {
             return []
         }
         
-        let restaurants = arrayOfRestaurants.flatMap { (json) -> Restaurant? in
-            guard let restaurantJSON = json["restaurantList"] as? JSON else { return nil }
+        let restaurants = arrayOfRestaurants.compactMap { (json) -> Restaurant? in
+            
+            guard let restaurantJSON = json as? JSON else { return nil }
             
             do {
                 let restaurantData = try JSONSerialization.data(withJSONObject: restaurantJSON, options: JSONSerialization.WritingOptions.init(rawValue: 0))

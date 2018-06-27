@@ -13,7 +13,7 @@ class RestaurantDataFetcher {
             return []
         }
         
-        let restaurants = arrayOfRestaurants.flatMap { (json) -> Restaurant? in
+        let restaurants = arrayOfRestaurants.compactMap { (json) -> Restaurant? in
             guard let restaurantJSON = json["restaurant"] as? JSON else {
                 return nil
             }
