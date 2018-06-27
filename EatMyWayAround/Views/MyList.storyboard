@@ -30,7 +30,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="YOA-mE-WQG" kind="show" identifier="showDetail" id="br0-uK-4o5"/>
+                                            <segue destination="YOA-mE-WQG" kind="show" identifier="showDetail" id="WN4-j1-ebE"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -60,6 +60,13 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wvk-m0-9PW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1048" y="127"/>
+        </scene>
+        <!--Storyboard Reference-->
+        <scene sceneID="UK9-LJ-vT3">
+            <objects>
+                <viewControllerPlaceholder id="XfQ-83-K7H" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x6T-CD-Tns" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
 </document>

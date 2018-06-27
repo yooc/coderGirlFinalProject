@@ -1,7 +1,7 @@
 import UIKit
 
 class MyListViewController: UIViewController {
-
+    
     @IBOutlet weak var myListTableView: UITableView!
     
     var dataModel: RestaurantModel? = nil
@@ -11,18 +11,16 @@ class MyListViewController: UIViewController {
         dataModel?.dataAvailableDelegate = self
         myListTableView.delegate = self
         myListTableView.dataSource = self
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let detailViewController = segue.destination as? RestaurantDetailsViewController, let restaurantSelected = sender as? Restaurant {
+        if let detailViewController = segue.destination as? RestaurantDetailsViewController {
             detailViewController.dataModel = dataModel
-            detailViewController.restaurantSelected = restaurantSelected
+            
+            if let indexPath = self.myListTableView.indexPathForSelectedRow {
+                detailViewController.restaurantSelected = self.dataModel?.persistedList[indexPath.row]
+            }
         }
-        let storyboard = UIStoryboard(name: "MyList", bundle: nil)
-        let restaurantDetails = storyboard.instantiateViewController(withIdentifier: "restaurantDetails")
-        restaurantDetails.modalTransitionStyle = .crossDissolve
-        self.present(restaurantDetails, animated: true, completion: nil)
     }
 }
 
@@ -43,12 +41,6 @@ extension MyListViewController: UITableViewDataSource {
 }
 
 extension MyListViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let restaurantArray = dataModel?.persistedList else { return }
-        guard let restaurant = restaurantArray[indexPath.row] else { return }
-        
-        performSegue(withIdentifier: "showDetail", sender: restaurant)
-    }
 }
 
 extension MyListViewController: DataAvailableDelegate {
