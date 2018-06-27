@@ -5,10 +5,13 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var searchResultsTableView: UITableView!
     
     var dataModel: RestaurantModel? = nil
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        dataModel?.populateSearchResults()
         dataModel?.dataAvailableDelegate = self
+        
         searchResultsTableView.delegate = self
         searchResultsTableView.dataSource = self
     }
