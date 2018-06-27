@@ -25,18 +25,23 @@ extension MyListViewController: UITableViewDataSource {
         guard let restaurant = restaurantArray[indexPath.row] else { return UITableViewCell() }
         
         cell.textLabel?.text = restaurant.name
-        cell.detailTextLabel?.text = """
-        \(restaurant.cuisines)
-        User Rating: \(restaurant.user_rating.aggregate_rating) from \(restaurant.user_rating.votes) votes
-        Average Cost for 2: \(restaurant.average_cost_for_two)
-        \(restaurant.location.address)
-        """
+        
         return cell
     }
 }
 
 extension MyListViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let restaurantArray = dataModel?.persistedList else { return }
+        guard let restaurant = restaurantArray[indexPath.row] else { return }
+        
+//        cell.detailTextLabel?.text = """
+//        \(restaurant.cuisines)
+//        User Rating: \(restaurant.user_rating.aggregate_rating) from \(restaurant.user_rating.votes) votes
+//        Average Cost for 2: \(restaurant.average_cost_for_two)
+//        \(restaurant.location.address)
+//        """
+    }
 }
 
 extension MyListViewController: DataAvailableDelegate {
